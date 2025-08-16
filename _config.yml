@@ -1,0 +1,21 @@
+title: "My Pentesting Blog"
+description: "Learning & documenting my journey into penetration testing."
+baseurl: "/Blog"
+url: "https://Nighty-Sky.github.io"
+markdown: kramdown
+theme: minima
+paginate: 5
+paginate_path: "/page:num/"
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+
+# Syntax highlighting
+highlighter: rouge
+
+# SEO
+author: "Nighty"
+social:
+  name: "My Pentesting Blog"
+  links:
+    - "https://github.com/Nighty-Sky"

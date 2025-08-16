@@ -1,0 +1,5 @@
+pre { overflow-x: auto; }
+@media (max-width: 600px) {
+  body { padding: 10px; }
+  nav a { display: block; margin: 5px 0; }
+}
