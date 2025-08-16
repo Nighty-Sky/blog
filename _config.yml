@@ -1,7 +1,7 @@
 title: "My Pentesting Blog"
 description: "Learning & documenting my journey into penetration testing."
-baseurl: "/Blog"
-url: "https://Nighty-Sky.github.io"
+baseurl: "/blog"
+url: "https://nighty-sky.github.io"
 markdown: kramdown
 theme: minima
 paginate: 5

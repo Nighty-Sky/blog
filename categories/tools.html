@@ -6,6 +6,6 @@ title: Tools
 <h1>Tools Posts</h1>
 <ul>
 {% for post in site.categories.tools %}
-  <li><a href="{{ site.baseurl }}/{{ post.url }}">{{ post.title }}</a></li>
+  <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
 </ul>
