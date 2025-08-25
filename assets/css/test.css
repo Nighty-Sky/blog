@@ -1,0 +1,16 @@
+/* Make Markdown tables look like Bootstrap tables */
+table {
+  @apply table table-bordered table-striped;
+}
+
+/* Make blockquotes look like Bootstrap alerts */
+blockquote {
+  @apply alert alert-secondary;
+}
+
+/* Style inline code */
+code {
+  background-color: #f8f9fa;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+}

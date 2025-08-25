@@ -1,0 +1,14 @@
+source "https://rubygems.org"
+
+gem "jekyll", "~> 4.3.2"
+
+# Add default gems that Ruby 3.4 removed
+gem "base64"
+gem "csv"
+gem "logger"
+
+gem "minima", "~> 2.5"
+
+gem "jekyll-seo-tag"
+gem "jekyll-sitemap"
+gem "jekyll-paginate"

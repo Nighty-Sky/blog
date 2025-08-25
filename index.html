@@ -1,0 +1,26 @@
+---
+layout: default
+title: Home
+---
+
+<div class="container mt-4">
+  <h1 class="mb-4">Latest Posts</h1>
+
+  <ul class="list-group">
+    {% for post in site.posts %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="{{ site.baseurl }}{{ post.url }}" class="text-decoration-none">
+          {{ post.title }}
+        </a>
+        <span class="badge bg-secondary">{{ post.date | date: "%Y-%m-%d" }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <div class="mt-4">
+    <a href="{{ site.baseurl }}/categories.html" class="btn btn-primary">
+      Browse by Category
+    </a>
+  </div>
+</div>
+
