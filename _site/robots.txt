@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://nighty-sky.github.io/blog/sitemap.xml
