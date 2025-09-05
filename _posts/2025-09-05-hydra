@@ -1,0 +1,102 @@
+---
+title:"Hydra"
+layout:"default"
+categories:[tools ,pentesting ]
+tags:[sheetcheat ,hydra, http , protocol, brute force, tools]
+---
+# Hydra
+
+🔐 TryHackMe – Hydra Room Summary
+
+Exploit HTTP and SSH login interfaces with Hydra, a parallelized password cracking tool.
+
+---
+
+🎯 Learning Objectives
+
+Understand what Hydra is and how it operates
+
+Perform brute‑force attacks against web login forms and SSH
+
+Craft retry patterns to detect failed attempts and successes
+
+---
+
+🧐 Overview
+
+Hydra is a fast network logon cracker that supports multiple protocols. It’s frequently used to brute‑force credentials via HTTP‑login POST forms and SSH sessions.
+
+---
+
+🔍 Task 1: Brute‑Force Web Login (HTTP POST)
+
+1. Recon: Scan target (e.g., port 80 for HTTP form).
+2. Identify the login form via browser dev tools (Network tab).
+3. Observe the POST request format and error message for failed login ("incorrect" or similar).
+4. Run Hydra:
+
+hydra -l molly -P /usr/share/wordlists/rockyou.txt \
+<target‑IP> http-post-form \
+'/login:username=^USER^&password=^PASS^:F=incorrect'
+
+1. Hydra finds the username molly and a matching password (e.g. sunshine), and reveals Flag 1, e.g.:
+
+THM{2673a7dd116de68e85c48ec0b1f2612e}
+
+---
+
+🔐 Task 2: Brute‑Force SSH Login
+
+1. With the same credentials list and user molly, run:
+
+hydra -l molly -P /usr/share/wordlists/rockyou.txt \
+<target‑IP> -t 4 ssh
+
+1. Hydra discovers the SSH password (e.g. butterfly).
+2. SSH into the box:
+
+ssh molly@<target‑IP>
+
+1. Locate flag2.txt and extract Flag 2, e.g.:
+
+THM{c8eeb0468febbadea859baeb33b2541b}
+
+---
+
+⚙️ Usage Recommendations & Notes
+
+Always inspect the login flow in browser dev tools to capture the POST format and error message.
+
+Hydra syntax for HTTP: ^USER^ and ^PASS^ placeholders.
+
+The failure condition (F=) matching is case-sensitive and must match the page response for invalid credentials.
+
+SSH brute-force via Hydra is straightforward compared to web forms.
+
+Flag capture is typically inside flag.txt files or shown on the web interface.
+
+---
+
+✅ Quick Reference Table
+
+Task	Command Snippet
+
+HTTP Brute‑force	hydra -l molly -P rockyou.txt <IP> http-post-form '/login:username=^USER^&password=^PASS^:F=incorrect'
+SSH Brute‑force	hydra -l molly -P rockyou.txt <IP> -t 4 ssh
+SSH into target	ssh molly@<IP>
+Discover first flag	Web response page or session after login
+Discover second flag	cat flag2.txt on SSH session
+
+---
+
+🧠 Key Takeaways
+
+Hydra is effective for both web form and SSH password brute-forcing.
+
+Matching the exact failure message (F= parameter) is vital for success.
+
+Recon steps (Nmap, dev tools inspection) are essential before launching Hydra attacks.
+
+Always verify discovered credentials by manually testing login or SSH access.
+
+Strong passwords and rate limiting help defend against brute-force attacks.
