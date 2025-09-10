@@ -1,19 +1,18 @@
 ---
 layout: default
-title: writeups
+title: Writeups
 ---
 
 <div class="container mt-4">
-  <h1 class="mb-4">w
-    Writeups</h1>
+  <h1 class="mb-4">Writeups</h1>
 
-    <ul class="list-group">
-        {% for post in site.categories.writeup %}
-              <li class="list-group-item">
-                      <a href="{{ site.baseurl }}{{ post.url }}" class="text-decoration-none">
-                                {{ post.title }}
-                                        </a>
-                                              </li>
-                                                  {% endfor %}
-                                                    </ul>
-                                                    </div>
+  <ul class="list-group">
+    {% for post in site.categories.writeup %}
+      <li class="list-group-item">
+        <a href="{{ site.baseurl }}{{ post.url }}" class="text-decoration-none">
+          {{ post.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
