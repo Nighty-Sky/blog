@@ -52,13 +52,9 @@ Privilege escalation was both challenging and rewarding. Here’s the approach I
 
 1. Checked which commands I could run as root:
 
-
-
 sudo -l
 
 2. Searched for SUID files:
-
-
 
 find / -user root -perm -4000 -exec ls -ldb {} \;
 
